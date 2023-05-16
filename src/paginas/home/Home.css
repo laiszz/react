@@ -1,0 +1,23 @@
+:root {
+    /* Paleta de Cores */
+    --cor1: #FBFAFF;
+    --cor2: #F4EFFA;
+    --cor3: #EBD9FC;
+    --cor4: #D4BBFC;
+    --cor5: #9B72CF;
+    --cor6: #9667E0;
+    --cor7: #532B88;
+    --cor8: #2F184B;
+
+    /* Outras cores */
+    --background: var(--cor6);
+}
+
+#home {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background);
+}

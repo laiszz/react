@@ -1,0 +1,44 @@
+:root {
+    /* Paleta de Cores */
+    --cor1: #FBFAFF;
+    --cor2: #F4EFFA;
+    --cor3: #EBD9FC;
+    --cor4: #D4BBFC;
+    --cor5: #9B72CF;
+    --cor6: #9667E0;
+    --cor7: #532B88;
+    --cor8: #2F184B;
+}
+
+.postagem {
+    width: 20vw;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+    border-radius: 5%;
+    
+    background-color: var(--cor4);  
+}
+
+.postagem > img {
+    width: 100%;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+}
+
+#postagem-titulo {
+    width: 100%;
+    height: 10%;
+    padding-top: 5%;
+    font-size: 125%;
+    background-color: var(--cor5);
+}
+
+#postagem-texto {
+    width: 100%;
+    height: 20%;
+    padding-top: 5%;
+}
