@@ -13,11 +13,21 @@
     --background: var(--cor6);
 }
 
-#home {
-    min-height: 80vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--background);
+.caixa {
+    background-color: #3F51B5;
+}
+
+.titulo {
+    color: white !important; 
+    font-weight: bold !important;
+}
+
+.botao {
+    border-color: white !important;
+    color: white !important;
+    background-color: #3F51B5;
+}
+
+.postagens {
+    background-color: white;
 }

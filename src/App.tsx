@@ -4,6 +4,7 @@ import Footer from './components/estaticos/footer/Footer'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './paginas/home/Home'
 import Login from './paginas/login/Login'
+import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario'
 import './App.css'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           {/* Outras rotas */}
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/cadastrousuario" element={<CadastroUsuario />} />
         </Routes>
 
         <Footer />
