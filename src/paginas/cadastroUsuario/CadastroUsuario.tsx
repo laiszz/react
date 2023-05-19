@@ -48,14 +48,30 @@ function CadastroUsuario() {
     }
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+        const btnCadastrar = document.getElementById('btnCadastrar')
+
         e.preventDefault()
 
-        if (confirmarSenha == user.senha) {
-            cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-            alert('Usuário cadastrado com sucesso!')
+        btnCadastrar?.setAttribute('disabled', '')
+
+        if (confirmarSenha == user.senha && user.senha != '') {
+            try {
+                await cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+
+                alert('Usuário cadastrado com sucesso!')
+            } catch (error) {
+                alert('Dados inválidos. Erro ao cadastrar!')
+            }
         } else {
-            alert('Dados inválidos. Favor verificar as informações de cadastro!')
+            alert('As senhas digitadas não correspondem!')
+            setUser({
+                ...user,
+                senha: ''
+            })
+            setConfirmarSenha('')
         }
+        
+        btnCadastrar?.removeAttribute('disabled')
     }
 
     return (
@@ -76,7 +92,7 @@ function CadastroUsuario() {
                                     Cancelar
                                 </Button>
                             </Link>
-                            <Button type='submit' variant='contained' color='primary'>
+                            <Button id='btnCadastrar' type='submit' variant='contained' color='primary'>
                                 Cadastrar
                             </Button>
                         </Box>
