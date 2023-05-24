@@ -1,50 +1,72 @@
-import React from 'react'
-import { AppBar, Toolbar, Typography, Button, Box } from '@material-ui/core'
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import React from 'react';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import {Box} from '@mui/material';
 import { Link } from 'react-router-dom';
-import './Navbar.css'
+import {useNavigate } from 'react-router-dom'
+import useLocalStorage from 'react-use-localstorage';
 
+import './Navbar.css'
 function Navbar() {
+    const [token, setToken] = useLocalStorage('token');
+    let navigate = useNavigate();
+    
+    function goLogout(){
+        setToken('')
+        alert("Usuário deslogado")
+        navigate('/login')
+    }
     return (
         <>
-            <AppBar id='navbar' position="static">
-                <Toolbar>
-                    <Box id='toolbar-icone'>
-                        <Link to="/home" id='toolbar-icone-link' className='link'>
-                            <img height='80%' src="src\assets\images\icone.png" alt="Ícone" />
-                        </Link>
+            <AppBar position="static">
+                <Toolbar variant="dense">
+                    <Box className='cursor'>
+                        <Typography variant="h5" color="inherit">
+                            BlogPessoal
+                        </Typography>
                     </Box>
-                    <Box id='toolbar-menu'>
-                        <Link to="/home" className='link'>
-                            <Typography variant='h6'>
-                                Home
+
+                    <Box display="flex" justifyContent="start">
+                        <Link to="/home" className="text-decorator-none">
+                            <Box mx={1} className='cursor'>
+                                <Typography variant="h6" color="inherit">
+                                    home
+                                </Typography>
+                            </Box>
+                        </Link>
+                        <Link to="/posts" className="text-decorator-none">
+                            <Box mx={1} className='cursor'>
+                                <Typography variant="h6" color="inherit">
+                                    postagens
+                                </Typography>
+                            </Box>
+                        </Link>
+                        <Link to="/temas" className="text-decorator-none">
+                        <Box mx={1} className='cursor'>
+                            <Typography variant="h6" color="inherit">
+                                temas
                             </Typography>
+                        </Box>
                         </Link>
-                        <hr />
-                        <Typography variant='h6'>
-                            Postagens
-                        </Typography>
-                        <hr />
-                        <Typography variant='h6'>
-                            Temas
-                        </Typography>
-                        <hr />
-                        <Typography variant='h6'>
-                            Sobre
-                        </Typography>
-                    </Box>
-                    <Box id='toolbar-login'>
-                        <Link to='/login' id='toolbar-login-link' className='link'>
-                            <Button color='inherit'>
-                                Login
-                                <AccountCircleIcon id='toolbar-login-icone' />
-                            </Button>
+                        <Link to="/formularioTema" className="text-decorator-none">
+                        <Box mx={1} className='cursor'>
+                            <Typography variant="h6" color="inherit">
+                                cadastrar tema
+                            </Typography>
+                        </Box>
                         </Link>
+                      
+                            <Box mx={1} className='cursor' onClick={goLogout}>
+                                <Typography variant="h6" color="inherit">
+                                    logout
+                                </Typography>
+                            </Box>
+                        
                     </Box>
+
                 </Toolbar>
             </AppBar>
         </>
     )
 }
 
-export default Navbar
+export default Navbar;
