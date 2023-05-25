@@ -1,17 +1,23 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText } from "@material-ui/core"
-import './CadastroPost.css';
-import {useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Tema from '../../../models/Tema';
-import useLocalStorage from 'react-use-localstorage';
 import Postagem from '../../../models/Postagem';
 import { busca, buscaId, post, put } from '../../../services/Service';
+import { useSelector } from 'react-redux';
+import { UserState } from '../../../store/token/Reducer';
+import './CadastroPost.css';
 
 function CadastroPost() {
     let navigate = useNavigate();
+
     const { id } = useParams<{ id: string }>();
+
     const [temas, setTemas] = useState<Tema[]>([])
-    const [token, setToken] = useLocalStorage('token');
+
+    const token = useSelector<UserState, UserState['tokens']>(
+        (state) => state.tokens
+    )
 
     useEffect(() => {
         if (token == "") {
@@ -33,7 +39,7 @@ function CadastroPost() {
         tema: null
     })
 
-    useEffect(() => { 
+    useEffect(() => {
         setPostagem({
             ...postagem,
             tema: tema
@@ -64,13 +70,11 @@ function CadastroPost() {
     }
 
     function updatedPostagem(e: ChangeEvent<HTMLInputElement>) {
-
         setPostagem({
             ...postagem,
             [e.target.name]: e.target.value,
             tema: tema
         })
-
     }
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
@@ -92,7 +96,6 @@ function CadastroPost() {
             alert('Postagem cadastrada com sucesso');
         }
         back()
-
     }
 
     function back() {
@@ -131,4 +134,5 @@ function CadastroPost() {
         </Container>
     )
 }
+
 export default CadastroPost;

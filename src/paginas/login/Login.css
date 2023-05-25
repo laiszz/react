@@ -1,8 +1,8 @@
-.textos1{
-   font-weight: bold !important;
+.textos1 {
+    font-weight: bold !important;
 }
 
-.imagem{
+.imagem {
     background-image: url(https://i.imgur.com/d5bMdDJ.jpg);
     background-repeat: no-repeat;
     width: 100vh;
@@ -11,6 +11,6 @@
     background-position: center;
 }
 
-.text-decorator-none{
+.text-decorator-none {
     text-decoration: none;
 }
