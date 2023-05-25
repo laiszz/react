@@ -1,17 +1,17 @@
 import React, { useState, useEffect, ChangeEvent } from 'react'
 import { Container, Typography, TextField, Button } from "@material-ui/core"
 import { useNavigate, useParams } from 'react-router-dom'
-import Tema from '../../../models/Tema';
-import { buscaId, post, put } from '../../../services/Service';
-import { useSelector } from 'react-redux';
-import { UserState } from '../../../store/token/Reducer';
-import './CadastroTema.css';
+import Tema from '../../../models/Tema'
+import { buscaId, post, put } from '../../../services/Service'
+import { useSelector } from 'react-redux'
+import { UserState } from '../../../store/token/Reducer'
+import './CadastroTema.css'
 
 
 function CadastroTema() {
-    let navigate = useNavigate();
+    let navigate = useNavigate()
 
-    const { id } = useParams<{ id: string }>();
+    const { id } = useParams<{ id: string }>()
 
     const token = useSelector<UserState, UserState['tokens']>(
         (state) => state.tokens
@@ -61,14 +61,14 @@ function CadastroTema() {
                     'Authorization': token
                 }
             })
-            alert('Tema atualizado com sucesso');
+            alert('Tema atualizado com sucesso')
         } else {
             post(`/tema`, tema, setTema, {
                 headers: {
                     'Authorization': token
                 }
             })
-            alert('Tema cadastrado com sucesso');
+            alert('Tema cadastrado com sucesso')
         }
         back()
     }
@@ -90,4 +90,4 @@ function CadastroTema() {
     )
 }
 
-export default CadastroTema;
+export default CadastroTema

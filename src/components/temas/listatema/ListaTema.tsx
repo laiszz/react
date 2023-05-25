@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
-import { Box } from '@mui/material';
-import Tema from '../../../models/Tema';
+import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core'
+import { Box } from '@mui/material'
+import Tema from '../../../models/Tema'
 import { useNavigate } from 'react-router-dom'
-import { busca } from '../../../services/Service';
-import { useSelector } from 'react-redux';
-import { UserState } from '../../../store/token/Reducer';
-import './ListaTema.css';
+import { busca } from '../../../services/Service'
+import { useSelector } from 'react-redux'
+import { UserState } from '../../../store/token/Reducer'
+import './ListaTema.css'
 
 function ListaTema() {
   const [temas, setTemas] = useState<Tema[]>([])
@@ -16,7 +16,7 @@ function ListaTema() {
     (state) => state.tokens
   )
 
-  let navigate = useNavigate();
+  let navigate = useNavigate()
 
   useEffect(() => {
     if (token == '') {
@@ -76,7 +76,7 @@ function ListaTema() {
         ))
       }
     </>
-  );
+  )
 }
 
-export default ListaTema;
+export default ListaTema

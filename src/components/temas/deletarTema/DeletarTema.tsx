@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
-import { Box } from '@mui/material';
-import { useNavigate, useParams } from 'react-router-dom';
-import { buscaId, deleteId } from '../../../services/Service';
-import Tema from '../../../models/Tema';
-import { useSelector } from 'react-redux';
-import { UserState } from '../../../store/token/Reducer';
-import './DeletarTema.css';
+import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core'
+import { Box } from '@mui/material'
+import { useNavigate, useParams } from 'react-router-dom'
+import { buscaId, deleteId } from '../../../services/Service'
+import Tema from '../../../models/Tema'
+import { useSelector } from 'react-redux'
+import { UserState } from '../../../store/token/Reducer'
+import './DeletarTema.css'
 
 function DeletarTema() {
-  let navigate = useNavigate();
+  let navigate = useNavigate()
 
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<{ id: string }>()
 
   const token = useSelector<UserState, UserState['tokens']>(
     (state) => state.tokens
@@ -47,8 +47,8 @@ function DeletarTema() {
       headers: {
         'Authorization': token
       }
-    });
-    alert('Tema deletado com sucesso');
+    })
+    alert('Tema deletado com sucesso')
   }
 
   function nao() {
@@ -86,7 +86,7 @@ function DeletarTema() {
         </Card>
       </Box>
     </>
-  );
+  )
 }
 
-export default DeletarTema;
+export default DeletarTema

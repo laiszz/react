@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { Typography, Button, Card, CardActions, CardContent } from "@material-ui/core"
-import { Box } from '@mui/material';
+import { Box } from '@mui/material'
 import { useNavigate, useParams } from 'react-router-dom'
-import Postagem from '../../../models/Postagem';
-import { buscaId, deleteId } from '../../../services/Service';
-import { useSelector } from 'react-redux';
-import { UserState } from '../../../store/token/Reducer';
-import './DeletarPostagem.css';
+import Postagem from '../../../models/Postagem'
+import { buscaId, deleteId } from '../../../services/Service'
+import { useSelector } from 'react-redux'
+import { UserState } from '../../../store/token/Reducer'
+import './DeletarPostagem.css'
 
 function DeletarPostagem() {
-  let navigate = useNavigate();
+  let navigate = useNavigate()
 
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<{ id: string }>()
 
   const token = useSelector<UserState, UserState['tokens']>(
     (state) => state.tokens
@@ -47,8 +47,8 @@ function DeletarPostagem() {
       headers: {
         'Authorization': token
       }
-    });
-    alert('Postagem deletada com sucesso');
+    })
+    alert('Postagem deletada com sucesso')
   }
 
   function nao() {
@@ -86,7 +86,7 @@ function DeletarPostagem() {
         </Card>
       </Box>
     </>
-  );
+  )
 }
 
-export default DeletarPostagem;
+export default DeletarPostagem

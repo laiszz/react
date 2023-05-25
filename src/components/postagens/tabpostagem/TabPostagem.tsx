@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
-import { AppBar, Tab, Tabs, Typography } from '@material-ui/core';
-import { Box } from '@mui/material';
-import { TabContext, TabPanel } from '@material-ui/lab';
-import ListaPostagem from '../listapostagem/ListaPostagem';
-import './TabPostagem.css';
+import { AppBar, Tab, Tabs, Typography } from '@material-ui/core'
+import { Box } from '@mui/material'
+import { TabContext, TabPanel } from '@material-ui/lab'
+import ListaPostagem from '../listapostagem/ListaPostagem'
+import './TabPostagem.css'
 
 function TabPostagem() {
   const [value, setValue] = useState('1')
 
   function handleChange(event: React.ChangeEvent<{}>, newValue: string) {
-    setValue(newValue);
+    setValue(newValue)
   }
 
   return (
@@ -32,7 +32,7 @@ function TabPostagem() {
         </TabPanel>
       </TabContext>
     </>
-  );
+  )
 }
 
-export default TabPostagem;
+export default TabPostagem

@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react';
-import { Typography, Grid, Button } from '@material-ui/core';
-import { Box } from '@mui/material';
-import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
-import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
-import { useNavigate } from 'react-router';
-import { useSelector } from 'react-redux';
-import { UserState } from '../../store/token/Reducer';
-import './Home.css';
+import React, { useEffect } from 'react'
+import { Typography, Grid, Button } from '@material-ui/core'
+import { Box } from '@mui/material'
+import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem'
+import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem'
+import { useNavigate } from 'react-router'
+import { useSelector } from 'react-redux'
+import { UserState } from '../../store/token/Reducer'
+import './Home.css'
 
 function Home() {
-    let navigate = useNavigate();
+    let navigate = useNavigate()
 
     const token = useSelector<UserState, UserState['tokens']>(
         (state) => state.tokens
@@ -46,7 +46,7 @@ function Home() {
                 </Grid>
             </Grid>
         </>
-    );
+    )
 }
 
-export default Home;
+export default Home

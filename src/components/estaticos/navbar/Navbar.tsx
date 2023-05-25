@@ -1,15 +1,15 @@
-import React from 'react';
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
-import { Box } from '@mui/material';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { AppBar, Toolbar, Typography } from '@material-ui/core'
+import { Box } from '@mui/material'
+import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux';
-import { UserState } from '../../../store/token/Reducer';
-import { addToken } from '../../../store/token/Actions';
+import { useDispatch, useSelector } from 'react-redux'
+import { UserState } from '../../../store/token/Reducer'
+import { addToken } from '../../../store/token/Actions'
 import './Navbar.css'
 
 function Navbar() {
-    let navigate = useNavigate();
+    let navigate = useNavigate()
 
     const dispatch = useDispatch()
 
@@ -81,4 +81,4 @@ function Navbar() {
     )
 }
 
-export default Navbar;
+export default Navbar
