@@ -2,25 +2,14 @@ import React from 'react'
 import { AppBar, Toolbar, Typography } from '@material-ui/core'
 import { Box } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { UserState } from '../../../store/token/Reducer'
-import { addToken } from '../../../store/token/Actions'
 import MenuLogin from '../menuLogin/MenuLogin'
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import './Navbar.css'
 
 function Navbar() {
-    let navigate = useNavigate()
-
-    const dispatch = useDispatch()
-
     const token = useSelector<UserState, UserState['tokens']>(
         (state) => state.tokens
-    )
-
-    const userId = useSelector<UserState, UserState['id']>(
-        (state) => state.id
     )
 
     var navbarComponent
