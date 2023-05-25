@@ -1,3 +1,5 @@
+import Postagem from "./Postagem"
+
 interface User {
     id: number
     nome: string
@@ -5,6 +7,7 @@ interface User {
     senha: string
     foto: string
     token: string
+    postagem?: Postagem[] 
 }
 
 export default User

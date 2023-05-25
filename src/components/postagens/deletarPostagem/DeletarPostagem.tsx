@@ -42,13 +42,19 @@ function DeletarPostagem() {
   }
 
   function sim() {
+    try {
+      deleteId(`/postagens/${id}`, {
+        headers: {
+          'Authorization': token
+        }
+      })
+      
+      alert('Postagem deletada com sucesso')
+    } catch (e) {
+      alert (e)
+    }
+
     navigate('/posts')
-    deleteId(`/postagens/${id}`, {
-      headers: {
-        'Authorization': token
-      }
-    })
-    alert('Postagem deletada com sucesso')
   }
 
   function nao() {

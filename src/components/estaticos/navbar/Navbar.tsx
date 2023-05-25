@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { UserState } from '../../../store/token/Reducer'
 import { addToken } from '../../../store/token/Actions'
+import MenuLogin from '../menuLogin/MenuLogin'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import './Navbar.css'
 
 function Navbar() {
@@ -17,24 +19,22 @@ function Navbar() {
         (state) => state.tokens
     )
 
-    function goLogout() {
-        dispatch(addToken(''))
-        alert("Usuário deslogado")
-        navigate('/login')
-    }
+    const userId = useSelector<UserState, UserState['id']>(
+        (state) => state.id
+    )
 
     var navbarComponent
 
     if (token !== '') {
         navbarComponent = (
-            <AppBar position="static">
-                <Toolbar variant="dense">
+            <AppBar position="static" className='appbar'>
+                <Toolbar variant="dense" className='toolbar'>
                     <Box className='cursor'>
                         <Typography variant="h5" color="inherit">
                             BlogPessoal
                         </Typography>
                     </Box>
-                    <Box display="flex" justifyContent="start">
+                    <Box display="flex" justifyContent='space-evenly' sx={{ width: '30vw' }}>
                         <Link to="/home" className="text-decorator-none">
                             <Box mx={1} className='cursor'>
                                 <Typography variant="h6" color="inherit">
@@ -63,12 +63,8 @@ function Navbar() {
                                 </Typography>
                             </Box>
                         </Link>
-                        <Box mx={1} className='cursor' onClick={goLogout}>
-                            <Typography variant="h6" color="inherit">
-                                Logout
-                            </Typography>
-                        </Box>
                     </Box>
+                    <MenuLogin />
                 </Toolbar>
             </AppBar>
         )

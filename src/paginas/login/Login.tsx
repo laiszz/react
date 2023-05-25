@@ -43,6 +43,7 @@ function Login() {
         if (respUser.token !== '') {
             dispatch(addToken(respUser.token))
             dispatch(addId(respUser.id.toString()))
+            navigate('/home')
         }
     }, [respUser.token])
 
@@ -53,8 +54,8 @@ function Login() {
             await login(`/usuarios/logar`, userLogin, setRespUser)
 
             alert('Usuário logado com sucesso!')
-        } catch (error) {
-            alert('Dados do usuário inconsistentes. Erro ao logar!')
+        } catch (e) {
+            alert(e)
         }
     }
 

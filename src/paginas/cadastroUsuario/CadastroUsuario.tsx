@@ -57,8 +57,8 @@ function CadastroUsuario() {
                 await cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
     
                 alert('Usuario cadastrado com sucesso')
-            } catch (error) {
-                alert('Dados do usuário inconsistentes. Erro ao cadastrar!')
+            } catch (e) {
+                alert(e)
             }
         } else {
             alert('As senhas não correspondem!')

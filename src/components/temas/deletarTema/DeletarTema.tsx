@@ -34,7 +34,7 @@ function DeletarTema() {
   }, [id])
 
   async function findById(id: string) {
-    buscaId(`/tema/${id}`, setTema, {
+    buscaId(`/temas/${id}`, setTema, {
       headers: {
         'Authorization': token
       }
@@ -42,13 +42,19 @@ function DeletarTema() {
   }
 
   function sim() {
+    try {
+      deleteId(`/temas/${id}`, {
+        headers: {
+          'Authorization': token
+        }
+      })
+      
+      alert('Tema deletado com sucesso')
+    } catch (e) {
+      alert(e)
+    }
+
     navigate('/temas')
-    deleteId(`/tema/${id}`, {
-      headers: {
-        'Authorization': token
-      }
-    })
-    alert('Tema deletado com sucesso')
   }
 
   function nao() {
