@@ -7,7 +7,7 @@ interface User {
     senha: string
     foto: string
     token: string
-    postagem?: Postagem[] 
+    postagem?: Postagem[]
 }
 
 export default User
